@@ -27,7 +27,7 @@ describe('CalculadoraService', () => {
     const num1 = 14;
     const num2 = 72;
 
-    const resto = service.suma(num1, num2) % 2;;
+    const resto = service.suma(num1, num2) % 2;
 
     expect(resto).toBe(0);
   });
@@ -36,8 +36,17 @@ describe('CalculadoraService', () => {
     const num1 = 14;
     const num2 = 7;
 
-    const resto = service.suma(num1, num2) % 2;;
+    const resto = service.suma(num1, num2) % 2;
 
     expect(resto).toBe(1);
+  });
+
+  it('should return number major than zero', () => {
+    const num1 = 2;
+    const num2 = 1;
+
+    const resto = service.suma(num1, num2);
+
+    expect(resto).toBeGreaterThan(0);
   });
 });
