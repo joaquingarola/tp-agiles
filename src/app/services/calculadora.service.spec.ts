@@ -49,4 +49,94 @@ describe('CalculadoraService', () => {
 
     expect(resto).toBeGreaterThan(0);
   });
+
+  it('should sum two zeros from string', () => {
+    const string = '0,0';
+
+    const res = service.sumaFromString(string);
+
+    expect(res).toBe(0);
+  });
+
+  it('should sum two odd numbers from string', () => {
+    const string = '1,7';
+
+    const resultado = service.sumaFromString(string);
+    const resto = resultado % 2;
+
+    expect(resultado).toBe(8);
+    expect(resto).toBe(0);
+  });
+
+  it('should sum several numbers from string', () => {
+    const string = '1,7,5,12,500,3,-5,4';
+
+    const resultado = service.sumaFromString(string);
+
+    expect(resultado).toBe(527);
+  });
+
+  it('should sum two decimal numbers from string', () => {
+    const string = '1.5,7.2';
+
+    const resultado = service.sumaFromString(string);
+
+    expect(resultado).toBe(8.7);
+  });
+
+  it('should return zero from empty string', () => {
+    const string = '';
+
+    const resultado = service.sumaFromString(string);
+
+    expect(resultado).toBe(0);
+  });
+
+  it('should return same number when there is only one', () => {
+    const string = '50';
+
+    const resultado = service.sumaFromString(string);
+
+    expect(resultado).toBe(50);
+  });
+
+  it('should sum numbers in different lines', () => {
+    const string = '1,2,4\n5,6';
+
+    const resultado = service.sumaFromString(string);
+
+    expect(resultado).toBe(18);
+  });
+
+  it('should sum numbers and set ; as delimiter', () => {
+    const string = '//;\n1;3;6;4';
+
+    const resultado = service.sumaFromString(string);
+
+    expect(resultado).toBe(14);
+  });
+
+  it('should sum numbers and set | as delimiter', () => {
+    const string = '//|\n1|3|6|4';
+
+    const resultado = service.sumaFromString(string);
+
+    expect(resultado).toBe(14);
+  });
+
+  it('should sum numbers and set * as delimiter', () => {
+    const string = '//*\n1*3*6*4';
+
+    const resultado = service.sumaFromString(string);
+
+    expect(resultado).toBe(14);
+  });
+
+  it('should sum numbers and set - as delimiter', () => {
+    const string = '//-\n1-3-6-4';
+
+    const resultado = service.sumaFromString(string);
+
+    expect(resultado).toBe(14);
+  });
 });
