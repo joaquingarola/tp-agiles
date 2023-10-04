@@ -34,7 +34,7 @@ describe('Ahorcado', () => {
     expect(resultado).toBeFalsy();
   });
 
-  it('Bebe devolver falso si el caracter es vacío', () => {
+  it('Debe devolver falso si el caracter es vacío', () => {
     ahorcado.palabra = 'agua';
     const letra = '';
 
@@ -43,7 +43,7 @@ describe('Ahorcado', () => {
     expect(resultado).toBeFalsy();
   });
 
-  it('Debe ingnorar mayúsculas', () => {
+  it('Debe ignorar mayúsculas', () => {
     ahorcado.palabra = 'agua';
     const letra = 'G';
 
@@ -158,5 +158,53 @@ describe('Ahorcado', () => {
     const resultado = ahorcado.chequearPalabra(palabraArriesgada);
 
     expect(resultado).toBeFalsy();
+  });
+
+  it('El estado final del juego debe ser Victoria si la palabra arriesgada es correcta', () => {
+    ahorcado.estadoJuego = 'Iniciado';
+    ahorcado.palabra = 'agua';
+    const palabraArriesgada = 'agua';
+
+    ahorcado.arriesgarPalabra(palabraArriesgada);
+
+    expect(ahorcado.estadoJuego).toBe('Victoria');
+  });
+
+  it('El estado final del juego debe ser Derrota si la palabra arriesgada es incorrecta', () => {
+    ahorcado.estadoJuego = 'Iniciado';
+    ahorcado.palabra = 'agua';
+    const palabraArriesgada = 'fuego';
+
+    ahorcado.arriesgarPalabra(palabraArriesgada);
+
+    expect(ahorcado.estadoJuego).toBe('Derrota');
+  });
+
+  it('Debe ignorar mayúsculas y minúsculas al arriesgar palabra', () => {
+    ahorcado.estadoJuego = 'Iniciado';
+    ahorcado.palabra = 'agua';
+    const palabraArriesgada = 'AgUA';
+
+    ahorcado.arriesgarPalabra(palabraArriesgada);
+
+    expect(ahorcado.estadoJuego).toBe('Victoria');
+  });
+
+  it('Debe generar un numero aleatorio entre 0 y la posicion de la ultima palabra', () => {
+    ahorcado.palabrasPosibles = ['agua', 'fuego', 'aire', 'tierra', 'alto', 'bajo'];
+
+    const resultado = ahorcado.generarNumeroAleatorio();
+
+    expect(resultado).toBeGreaterThanOrEqual(0);
+    expect(resultado).toBeLessThanOrEqual(ahorcado.palabrasPosibles.length - 1);
+  });
+
+  it('Debe seleccionar una palabra aleatoria al iniciar el juego', () => {
+    ahorcado.palabra = '';
+    ahorcado.palabrasPosibles = ['agua', 'fuego', 'aire', 'tierra'];
+
+    ahorcado.iniciarJuego();
+
+    expect(ahorcado.palabrasPosibles).toContain(ahorcado.palabra);
   });
 });
