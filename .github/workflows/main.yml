@@ -19,10 +19,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
         
-      - name: Run tests
-        run: npm run test
-
-      - name: Show coverage
+      - name: Run tests and show coverage
         run: npm run test:coverage
     
       - name: Run Build
