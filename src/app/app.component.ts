@@ -9,12 +9,5 @@ import { Ahorcado } from './class/ahorcado';
 export class AppComponent implements OnInit {
   title = 'Clases';
 
-  ngOnInit(): void{
-    const ahorcado = new Ahorcado();
-    ahorcado.palabra = 'agua';
-
-    const result = ahorcado.posicionLetra('a');
-
-    console.log(result);
-  } 
+  ngOnInit(): void{ } 
 }
