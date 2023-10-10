@@ -1,5 +1,5 @@
 export class Ahorcado {
-  public palabrasPosibles = ['agua', 'fuego', 'aire', 'tierra'];
+  public palabrasPosibles = ['agua', 'fuego', 'aire', 'tierra', 'planta'];
   public palabra = 'agua';
   public vidas = 5;
   public posicionesAdivinadas: number[] = [];
