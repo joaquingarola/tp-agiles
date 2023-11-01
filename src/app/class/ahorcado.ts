@@ -1,3 +1,5 @@
+import { of } from 'rxjs';
+
 export class Ahorcado {
   public palabrasPosibles = ['agua', 'fuego', 'aire', 'tierra', 'planta'];
   public palabra = 'agua';
@@ -7,6 +9,7 @@ export class Ahorcado {
   public estadoJuego = 'Iniciado';
 
   public chequearLetra(letra: string): boolean {
+    const prueba = 'hola';
     if(letra == ''){
       return false;
     }
