@@ -18,9 +18,16 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Checkout code
+        uses: actions/checkout@main
+
+      - name: Run Codacy Analysis CLI
+        uses: codacy/codacy-analysis-cli-action@master
         
       - name: Run tests and show coverage
         run: npm run test:coverage
     
       - name: Run Build
         run: npm run build
+        
