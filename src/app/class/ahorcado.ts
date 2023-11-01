@@ -1,4 +1,4 @@
-import { of } from 'rxjs';
+import { of, map } from 'rxjs';
 
 export class Ahorcado {
   public palabrasPosibles = ['agua', 'fuego', 'aire', 'tierra', 'planta'];
