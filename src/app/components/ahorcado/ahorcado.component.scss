@@ -1,0 +1,97 @@
+div {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 75px;
+
+  &__opciones {
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: center;
+
+    &__boton {
+      width: 120px;
+      padding: 10px
+    }
+
+    &__letras {
+      height: 30px;
+      width: 30px;
+      margin: 5px 10px;
+    }
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      &__input {
+        text-align: center;
+        width: 250px;
+        padding: 6px 12px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        border: 1px solid #ced4da;
+        border-radius: 20px;
+      }
+
+      &__boton {
+        width: 120px;
+        border-radius: 20px;
+        padding: 5px;
+        background: #343a40;
+        box-shadow: 0 5px #212529;
+      }
+    }
+  }
+}
+
+.hidden-word {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  gap: 0.25rem;
+
+  &__letter{
+    margin: 0;
+    width: 30px;
+  }
+}
+
+button {
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  background: #6c757d;
+  box-shadow: 0 5px #495057;
+}
+
+button:hover:enabled {
+  box-shadow: 0 3px #495057;
+  top: 1px;
+}
+
+button:active:enabled {
+  box-shadow: 0 0 #495057;
+  top: 5px;
+}
+
+button:disabled {
+  background: #c8cacb;
+  box-shadow: 0 5px #c8cacb;
+  cursor: default;
+}

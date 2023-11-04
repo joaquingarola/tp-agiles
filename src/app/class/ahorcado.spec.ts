@@ -173,11 +173,13 @@ describe('Ahorcado', () => {
   it('El estado final del juego debe ser Derrota si la palabra arriesgada es incorrecta', () => {
     ahorcado.estadoJuego = 'Iniciado';
     ahorcado.palabra = 'agua';
+    ahorcado.vidas = 5;
     const palabraArriesgada = 'fuego';
 
     ahorcado.arriesgarPalabra(palabraArriesgada);
 
     expect(ahorcado.estadoJuego).toBe('Derrota');
+    expect(ahorcado.vidas).toBe(0);
   });
 
   it('Debe ignorar mayúsculas y minúsculas al arriesgar palabra', () => {
@@ -202,9 +204,35 @@ describe('Ahorcado', () => {
   it('Debe seleccionar una palabra aleatoria al iniciar el juego', () => {
     ahorcado.palabra = '';
     ahorcado.palabrasPosibles = ['agua', 'fuego', 'aire', 'tierra'];
+    jest.spyOn(ahorcado, 'generarNumeroAleatorio').mockReturnValue(1);
 
     ahorcado.iniciarJuego();
 
-    expect(ahorcado.palabrasPosibles).toContain(ahorcado.palabra);
+    expect(ahorcado.palabra).toBe('fuego');
+    expect(ahorcado.palabraOculta).toStrictEqual(['_','_','_','_','_']);
+  });
+
+  it('Debe inicializar las variables al iniciar juego', () => {
+    ahorcado.estadoJuego = 'Vacio';
+    ahorcado.vidas = 0;
+    ahorcado.posicionesAdivinadas = [1,2,3,4,5,6,7,8,9,10];
+    ahorcado.letrasArriesgadas = ['a','b','c','d','e','f'];
+
+    ahorcado.iniciarJuego();
+
+    expect(ahorcado.estadoJuego).toBe('Iniciado');
+    expect(ahorcado.vidas).toBe(5);
+    expect(ahorcado.posicionesAdivinadas).toStrictEqual([]);
+    expect(ahorcado.letrasArriesgadas).toStrictEqual([]);
+  });
+
+  it('Debe actualizar la vista de la palabra oculta', () => {
+    ahorcado.palabraOculta = ['_','_','_','_'];
+    ahorcado.posicionesAdivinadas = [0,2];
+    ahorcado.palabra = 'agua';
+
+    ahorcado.actualizarVista();
+
+    expect(ahorcado.palabraOculta).toStrictEqual(['a','_','u','_']);
   });
 });

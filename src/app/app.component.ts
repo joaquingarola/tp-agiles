@@ -7,7 +7,5 @@ import { Ahorcado } from './class/ahorcado';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'Clases';
-
   ngOnInit(): void{ } 
 }

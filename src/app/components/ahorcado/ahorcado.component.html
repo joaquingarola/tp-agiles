@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col text-center">
+    <h1 class="text-primary">Ahorcado</h1>
+  </div>
+</div>
+<div class="row">
+  <h2>Vidas: <small>{{juego.vidas}} / 5 </small></h2>
+  <div class="col text-center container">
+    <div class="container__img">
+      <img
+        src="assets/img/{{juego.vidas}}.png"
+        class="ahorcado-img"
+        alt="Ahorcado"
+      />
+    </div>
+    <div class="row container__opciones" *ngIf="juego.estadoJuego == 'Iniciado'">
+      <div class="col text-center">
+        <button
+          (click)="juego.arriesgarLetra(letra)"
+          *ngFor="let letra of letras"
+          class="container__opciones__letras"
+          [disabled] = "juego.letrasArriesgadas.includes(letra.toUpperCase())"
+        >
+          {{ letra.toUpperCase() }}
+        </button>
+      </div>
+      <div>
+        <form [formGroup]="form" (ngSubmit)="onFormSubmit()" class="container__opciones__form">
+          <input class="container__opciones__form__input" formControlName="palabra" placeholder="Ingrese una palabra">
+          <button 
+            [disabled]="form.pristine || form.invalid"
+            class="container__opciones__form__boton" 
+            type="submit">
+              Arriesgar
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="row container__opciones" *ngIf="juego.estadoJuego == 'Victoria'">
+      <div class="col text-center">
+        <h1 class="text-success">Felicidades! Ganaste!</h1>
+        <button class="row container__opciones__boton" (click)="juego.iniciarJuego()">Jugar de nuevo</button>
+      </div>
+    </div>
+    <div class="row container__opciones" *ngIf="juego.estadoJuego == 'Derrota'">
+      <div class="col text-center">
+        <h1>Que lástima! Perdiste!</h1>
+        <h2>La palabra correcta era: {{ juego.palabra.toUpperCase() }}</h2>
+        <button class="row container__opciones__boton" (click)="juego.iniciarJuego()">Jugar de nuevo</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col text-center hidden-word">
+    <h1
+      class="hidden-word__letter"
+      *ngFor="let letra of juego.palabraOculta"
+    >
+      {{ letra.toUpperCase() }}
+    </h1>
+  </div>
+</div>

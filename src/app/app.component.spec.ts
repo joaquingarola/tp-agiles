@@ -23,13 +23,4 @@ describe('AppComponent', () => {
   it('should create the app', () => {
     expect(component).toBeTruthy();
   });
-
-  it(`should have as title 'Clases'`, () => {
-    expect(component.title).toEqual('Clases');
-  });
-
-  it('should render title', () => {
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('Clases app is running!');
-  });
 });

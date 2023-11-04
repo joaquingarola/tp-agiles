@@ -2,14 +2,14 @@ import { of, map, tap } from 'rxjs';
 
 export class Ahorcado {
   public palabrasPosibles = ['agua', 'fuego', 'aire', 'tierra', 'planta'];
-  public palabra = 'agua';
+  public palabraOculta: string[] = [];
+  public palabra = '';
   public vidas = 5;
   public posicionesAdivinadas: number[] = [];
   public letrasArriesgadas: string[] = [];
   public estadoJuego = 'Iniciado';
 
   public chequearLetra(letra: string): boolean {
-    const prueba = 'hola';
     if(letra == ''){
       return false;
     }
@@ -26,6 +26,13 @@ export class Ahorcado {
       if(letra == char){
         this.posicionesAdivinadas.push(i);
       }
+    });
+    this.actualizarVista()
+  }
+
+  public actualizarVista(): void{
+    this.palabra.split('').map((char, i) => {
+      this.palabraOculta[i] = this.posicionesAdivinadas.includes(i) ? char : '_';
     });
   }
 
@@ -55,12 +62,22 @@ export class Ahorcado {
   }
 
   public arriesgarPalabra(palabra: string): void {
-    this.estadoJuego = this.chequearPalabra(palabra) ? 'Victoria' : 'Derrota'
+    if(this.chequearPalabra(palabra)) {
+      this.estadoJuego = 'Victoria'
+    } else {
+      this.vidas = 0;
+      this.estadoJuego = 'Derrota';
+    }
   }
 
   public iniciarJuego(): void {
+    this.estadoJuego = 'Iniciado';
+    this.vidas = 5;
+    this.posicionesAdivinadas = [];
+    this.letrasArriesgadas = [];
     const posicion = this.generarNumeroAleatorio();
     this.palabra = this.palabrasPosibles[posicion];
+    this.palabraOculta = "_".repeat(this.palabra.length).split('');
   }
 
   public generarNumeroAleatorio(): number {
