@@ -23,6 +23,9 @@ jobs:
         
       - name: Run tests and show coverage
         run: npm run test:coverage
+
+      - name: Run acceptance tests
+        run: npm run cypress:run
     
       - name: Run Build
         run: npm run build
