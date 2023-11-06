@@ -16,8 +16,9 @@
     <div class="row container__opciones" *ngIf="juego.estadoJuego == 'Iniciado'">
       <div class="col text-center">
         <button
-          (click)="juego.arriesgarLetra(letra)"
           *ngFor="let letra of letras"
+          id="{{'letter-'+letra}}"
+          (click)="juego.arriesgarLetra(letra)"
           class="container__opciones__letras"
           [disabled] = "juego.letrasArriesgadas.includes(letra.toUpperCase())"
         >
@@ -26,8 +27,14 @@
       </div>
       <div>
         <form [formGroup]="form" (ngSubmit)="onFormSubmit()" class="container__opciones__form">
-          <input class="container__opciones__form__input" formControlName="palabra" placeholder="Ingrese una palabra">
+          <input 
+            id="arriesgar-palabra"
+            class="container__opciones__form__input" 
+            formControlName="palabra" 
+            placeholder="Ingrese una palabra"
+          >
           <button 
+            id="btn-arriesgar-palabra"
             [disabled]="form.pristine || form.invalid"
             class="container__opciones__form__boton" 
             type="submit">
@@ -39,14 +46,24 @@
     <div class="row container__opciones" *ngIf="juego.estadoJuego == 'Victoria'">
       <div class="col text-center">
         <h1 class="text-success">Felicidades! Ganaste!</h1>
-        <button class="row container__opciones__boton" (click)="juego.iniciarJuego()">Jugar de nuevo</button>
+        <button 
+          id="btn-nuevo-juego-victoria"
+          class="row container__opciones__boton"  
+          (click)="juego.iniciarJuego()">
+            Jugar de nuevo
+        </button>
       </div>
     </div>
     <div class="row container__opciones" *ngIf="juego.estadoJuego == 'Derrota'">
       <div class="col text-center">
         <h1>Que lástima! Perdiste!</h1>
         <h2>La palabra correcta era: {{ juego.palabra.toUpperCase() }}</h2>
-        <button class="row container__opciones__boton" (click)="juego.iniciarJuego()">Jugar de nuevo</button>
+        <button 
+          id="btn-nuevo-juego-derrota"
+          class="row container__opciones__boton" 
+          (click)="juego.iniciarJuego()">
+            Jugar de nuevo
+        </button>
       </div>
     </div>
   </div>
