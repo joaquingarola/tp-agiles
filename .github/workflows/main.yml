@@ -23,9 +23,6 @@ jobs:
         
       - name: Run tests and show coverage
         run: npm run test:coverage
-
-      - name: Run acceptance tests
-        run: npm run cypress:run
     
       - name: Run Build
         run: npm run build
@@ -89,3 +86,14 @@ jobs:
         with:
           sarif_file: eslint-results.sarif
           wait-for-processing: true
+    
+  Acceptance-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          build: npm run build
+          start: npm start
