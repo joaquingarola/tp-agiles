@@ -1,0 +1,14 @@
+{
+  "letras": [
+    "a", "b", "c", "d", "e", "f", "g", "h", "i",
+    "j", "k", "l", "m", "n", "ñ", "o", "p", "q",
+    "r", "s", "t", "u", "v", "w", "x", "y", "z"
+  ],
+  "palabras": [
+    "manzana", "pera", "platano", "uva", "naranja", "limon", "fresa", "sandia", "kiwi", "melocoton",
+    "ciruela", "pina", "mango", "cereza", "papaya", "albaricoque", "granada", "frambuesa", "arandano", "fruta",
+    "verde", "rojo", "amarillo", "azul", "blanco", "negro", "gris", "naranja", "violeta", "mariposa",
+    "abeja", "arana", "gato", "perro", "elefante", "tigre", "leon", "jirafa", "cebra", "gorila",
+    "rinoceronte", "hipopotamo", "cocodrilo", "serpiente", "tortuga", "tiburon", "ballena", "delfin"
+  ]
+}

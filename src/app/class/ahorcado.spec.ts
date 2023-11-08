@@ -193,32 +193,33 @@ describe('Ahorcado', () => {
   });
 
   it('Debe generar un numero aleatorio entre 0 y la posicion de la ultima palabra', () => {
-    ahorcado.palabrasPosibles = ['agua', 'fuego', 'aire', 'tierra', 'alto', 'bajo'];
+    const valorMaximo = 5;
 
-    const resultado = ahorcado.generarNumeroAleatorio();
+    const resultado = ahorcado.generarNumeroAleatorio(valorMaximo);
 
     expect(resultado).toBeGreaterThanOrEqual(0);
-    expect(resultado).toBeLessThanOrEqual(ahorcado.palabrasPosibles.length - 1);
+    expect(resultado).toBeLessThanOrEqual(valorMaximo - 1);
   });
 
   it('Debe seleccionar una palabra aleatoria al iniciar el juego', () => {
     ahorcado.palabra = '';
-    ahorcado.palabrasPosibles = ['agua', 'fuego', 'aire', 'tierra'];
+    const palabrasPosibles = ['agua', 'fuego', 'aire', 'tierra'];
     jest.spyOn(ahorcado, 'generarNumeroAleatorio').mockReturnValue(1);
 
-    ahorcado.iniciarJuego();
+    ahorcado.iniciarJuego(palabrasPosibles);
 
     expect(ahorcado.palabra).toBe('fuego');
     expect(ahorcado.palabraOculta).toStrictEqual(['_','_','_','_','_']);
   });
 
   it('Debe inicializar las variables al iniciar juego', () => {
+    const palabrasPosibles = ['agua', 'fuego', 'aire', 'tierra'];
     ahorcado.estadoJuego = 'Vacio';
     ahorcado.vidas = 0;
     ahorcado.posicionesAdivinadas = [1,2,3,4,5,6,7,8,9,10];
     ahorcado.letrasArriesgadas = ['a','b','c','d','e','f'];
 
-    ahorcado.iniciarJuego();
+    ahorcado.iniciarJuego(palabrasPosibles);
 
     expect(ahorcado.estadoJuego).toBe('Iniciado');
     expect(ahorcado.vidas).toBe(5);

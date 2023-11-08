@@ -1,7 +1,6 @@
 import { of, map, tap } from 'rxjs';
 
 export class Ahorcado {
-  public palabrasPosibles = ['agua', 'fuego', 'aire', 'tierra', 'planta'];
   public palabraOculta: string[] = [];
   public palabra = '';
   public vidas = 5;
@@ -70,18 +69,18 @@ export class Ahorcado {
     }
   }
 
-  public iniciarJuego(): void {
+  public iniciarJuego(palabrasPosibles: string[]): void {
     this.estadoJuego = 'Iniciado';
     this.vidas = 5;
     this.posicionesAdivinadas = [];
     this.letrasArriesgadas = [];
-    const posicion = this.generarNumeroAleatorio();
-    this.palabra = this.palabrasPosibles[posicion];
+    const posicion = this.generarNumeroAleatorio(palabrasPosibles.length);
+    this.palabra = palabrasPosibles[posicion];
     this.palabraOculta = "_".repeat(this.palabra.length).split('');
   }
 
-  public generarNumeroAleatorio(): number {
-    const numeroMax = this.palabrasPosibles.length - 1;
+  public generarNumeroAleatorio(max: number): number {
+    const numeroMax = max - 1;
     return Math.floor(Math.random() * numeroMax);
   }
 }

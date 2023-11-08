@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Ahorcado } from '../../class/ahorcado';
+import { GameData } from '../../models/game-data.interface';
+import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -12,39 +14,18 @@ export class AhorcadoComponent implements OnInit {
     palabra: ['', [Validators.required]]
   });
   public juego = new Ahorcado()
-  public letras = [
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-    "g",
-    "h",
-    "i",
-    "j",
-    "k",
-    "l",
-    "m",
-    "n",
-    "ñ",
-    "o",
-    "p",
-    "q",
-    "r",
-    "s",
-    "t",
-    "u",
-    "v",
-    "w",
-    "x",
-    "y",
-    "z"
-  ];
-  constructor(private fb: FormBuilder) { }
+  public palabrasPosibles: string[] = [];
+  public letras: string [] = [];
+  
+  constructor(private fb: FormBuilder, private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.juego.iniciarJuego();
+    this.http.get<GameData>('../../../assets/data/data.json')
+      .subscribe(data => {
+        this.juego.iniciarJuego(data.palabras);
+        this.letras = data.letras;
+        this.palabrasPosibles = data.palabras;
+      });
   }
 
   public onFormSubmit(): void {
