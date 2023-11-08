@@ -1,5 +1,3 @@
-import { of, map, tap } from 'rxjs';
-
 export class Ahorcado {
   public palabraOculta: string[] = [];
   public palabra = '';

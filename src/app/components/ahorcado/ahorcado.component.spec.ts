@@ -1,11 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { AhorcadoComponent } from './ahorcado.component';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { NO_ERRORS_SCHEMA } from '@angular/compiler';
 import { Ahorcado } from '../../class/ahorcado';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { of } from 'rxjs';
 import { DificultadEnum } from '../../enums/dificultad.enum';
 import { GameData } from '../../models/game-data.interface';
