@@ -4,11 +4,24 @@
     "j", "k", "l", "m", "n", "ñ", "o", "p", "q",
     "r", "s", "t", "u", "v", "w", "x", "y", "z"
   ],
-  "palabras": [
-    "manzana", "pera", "platano", "uva", "naranja", "limon", "fresa", "sandia", "kiwi", "melocoton",
-    "ciruela", "pina", "mango", "cereza", "papaya", "albaricoque", "granada", "frambuesa", "arandano", "fruta",
-    "verde", "rojo", "amarillo", "azul", "blanco", "negro", "gris", "naranja", "violeta", "mariposa",
-    "abeja", "arana", "gato", "perro", "elefante", "tigre", "leon", "jirafa", "cebra", "gorila",
-    "rinoceronte", "hipopotamo", "cocodrilo", "serpiente", "tortuga", "tiburon", "ballena", "delfin"
+  "palabrasFaciles": [
+    "sol", "casa", "perro", "gato", "flor", "agua", "azul", "verde", "comer", "jugar",
+    "amigo", "luz", "luna", "nino", "mesa", "hoja", "piedra", "rio", "solucion", "feliz",
+    "sonrisa", "dulce", "pelota", "musica", "caminar", "diente", "paz", "familia", "pueblo",
+    "puerta", "ventana", "nube", "cielo", "ojo", "nariz", "oreja", "boca", "pie", "mano",
+    "tren", "coche", "lapiz", "libro", "cancion", "nadar", "montana", "mar", "fruta", "dormir"
+  ],
+  "palabrasMedias": [
+    "computadora", "telefono", "guitarra", "trabajo", "viaje", "pintura", "arte", "persona", "ciencia", "historia",
+    "tecnologia", "cambio", "regimen", "educacion", "institucion", "gobierno", "cultura", "sociedad", "comunicacion", "economia",
+    "medicina", "pensamiento", "filosofia", "politica", "religion", "creatividad", "naturaleza", "ambiente", "globalizacion",
+    "desarrollo", "investigacion", "revolucion", "experimento", "evolucion", "crecimiento", "relacion", "civilizacion", "generacion",
+    "interpretacion", "perspectiva", "reflexion", "cooperacion", "interpretacion", "generacion", "perspectiva", "reflexion", "cooperacion"
+  ],
+  "palabrasDificiles": [
+    "paradigma", "cosmogonia", "paradoja", "inexpugnable", "circunloquio", "sesquipedaliano", "anticonstitucionalidad", "constitucionalidad", "polilingue", "contraproducente",
+    "inconstitucionalidad", "transcendentalismo", "circuncision", "acantilado", "heuristico", "jeroglifico", "adjetivacion", "interpelacion", "monologo", "palindromia",
+    "sublime", "esceptico", "inefable", "efimero", "inextricable", "inmutable", "intransigente", "incorregible", "irrefutable", "onirico",
+    "inconmensurable", "arbitrariedad", "sintagma", "magnanimidad", "sesquicentenario", "elocuencia", "paronomasia", "apofenia", "metonimia", "paralelismo"
   ]
 }

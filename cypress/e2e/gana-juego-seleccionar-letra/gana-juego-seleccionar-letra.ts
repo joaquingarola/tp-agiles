@@ -7,11 +7,14 @@ Given("Inicio un nuevo juego y la palabra es {string}", (palabra) => {
       "j", "k", "l", "m", "n", "ñ", "o", "p", "q",
       "r", "s", "t", "u", "v", "w", "x", "y", "z"
     ],
-    "palabras": [ palabra ]
+    "palabrasFaciles": [ palabra ],
+    "palabrasMedias": [],
+    "palabrasDificiles": []
   }
-
-  cy.intercept('GET', '/assets/data/data.json', staticResponse).as('todos');
+  
   cy.visit("http://localhost:4200/");
+  cy.intercept('GET', '/assets/data/data.json', staticResponse).as('todos');
+  cy.get('[id=btn-dificultad-facil]').click();
   cy.wait('@todos');
 });
 

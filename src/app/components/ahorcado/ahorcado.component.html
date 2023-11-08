@@ -1,9 +1,30 @@
 <div class="row">
   <div class="col text-center">
-    <h1 class="text-primary">Ahorcado</h1>
+    <h1 class="text-primary">Juego del Ahorcado</h1>
   </div>
 </div>
-<div class="row">
+<div class="dificultad" *ngIf="!comenzarJuego">
+  <h2>Seleccione dificultad</h2>
+  <button 
+    id="btn-dificultad-facil"
+    class="row dificultad__boton" 
+    (click)="comenzar(dificultades.Facil)">
+      Fácil
+  </button>
+  <button 
+    id="btn-dificultad-media"
+    class="row dificultad__boton" 
+    (click)="comenzar(dificultades.Medio)">
+      Media
+  </button>
+  <button 
+    id="btn-dificultad-dificil"
+    class="row dificultad__boton" 
+    (click)="comenzar(dificultades.Dificil)">
+      Difícil
+  </button>
+</div>
+<div class="row" *ngIf="comenzarJuego">
   <h2>Vidas: <small>{{juego.vidas}} / 5 </small></h2>
   <div class="col text-center container">
     <div class="container__img">
@@ -49,7 +70,7 @@
         <button 
           id="btn-nuevo-juego-victoria"
           class="row container__opciones__boton"  
-          (click)="juego.iniciarJuego(palabrasPosibles)">
+          (click)="reiniciar()">
             Jugar de nuevo
         </button>
       </div>
@@ -61,20 +82,21 @@
         <button 
           id="btn-nuevo-juego-derrota"
           class="row container__opciones__boton" 
-          (click)="juego.iniciarJuego(palabrasPosibles)">
+          (click)="reiniciar()">
             Jugar de nuevo
         </button>
       </div>
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="col text-center hidden-word">
-    <h1
-      class="hidden-word__letter"
-      *ngFor="let letra of juego.palabraOculta"
-    >
-      {{ letra.toUpperCase() }}
-    </h1>
+  <div class="row">
+    <div class="col text-center hidden-word">
+      <h1
+        class="hidden-word__letter"
+        *ngFor="let letra of juego.palabraOculta"
+      >
+        {{ letra.toUpperCase() }}
+      </h1>
+    </div>
   </div>
 </div>
+

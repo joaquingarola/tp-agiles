@@ -1,4 +1,6 @@
 export interface GameData {
-  palabras: string[];
+  palabrasFaciles: string[];
+  palabrasMedias: string[];
+  palabrasDificiles: string[];
   letras: string[];
 }
