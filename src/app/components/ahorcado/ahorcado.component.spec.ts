@@ -40,7 +40,7 @@ describe('AhorcadoComponent', () => {
 
     component.ngOnInit();
 
-    expect(httpClientSpy).toHaveBeenCalledWith('../../../assets/data/data.json');
+    expect(httpClientSpy).toHaveBeenCalledWith('assets/data/data.json');
     expect(iniciarJuegoSpy).toHaveBeenCalledWith(mockData.palabras);
     expect(component.letras).toEqual(['a', 'b', 'c']);
     expect(component.palabrasPosibles).toEqual(['manzana', 'banana']);
