@@ -20,7 +20,7 @@ export class AhorcadoComponent implements OnInit {
   constructor(private fb: FormBuilder, private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get<GameData>('../../../assets/data/data.json')
+    this.http.get<GameData>('/assets/data/data.json')
       .subscribe(data => {
         this.juego.iniciarJuego(data.palabras);
         this.letras = data.letras;
