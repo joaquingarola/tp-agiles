@@ -230,7 +230,7 @@ describe('Ahorcado', () => {
   it('Debe actualizar la vista de la palabra oculta', () => {
     ahorcado.palabraOculta = ['_','_','_','_'];
     ahorcado.posicionesAdivinadas = [0,2];
-    ahorcado.palabra = 'motor';
+    ahorcado.palabra = 'agua';
 
     ahorcado.actualizarVista();
 
