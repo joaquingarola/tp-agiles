@@ -1,7 +1,7 @@
 export class Ahorcado {
   public palabraOculta: string[] = [];
   public palabra = '';
-  public vidas = 5;
+  public vidas= 5;
   public posicionesAdivinadas: number[] = [];
   public letrasArriesgadas: string[] = [];
   public estadoJuego = 'Iniciado';
