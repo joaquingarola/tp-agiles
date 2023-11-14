@@ -25,7 +25,7 @@ export class AhorcadoComponent {
     this.comenzarJuego = true;
     this.http.get<GameData>('assets/data/data.json').subscribe(data => {
       this.letras = data.letras;
-      const palabrasJuego = this.seleccionarPalabras(dificultad, data);
+      let palabrasJuego = this.seleccionarPalabras(dificultad, data);
       this.juego.iniciarJuego(palabrasJuego);
     })
   }
