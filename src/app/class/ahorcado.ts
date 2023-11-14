@@ -1,7 +1,9 @@
+import { of, map, tap } from 'rxjs';
+
 export class Ahorcado {
   public palabraOculta: string[] = [];
   public palabra = '';
-  public vidas= 5;
+  public vidas = 5;
   public posicionesAdivinadas: number[] = [];
   public letrasArriesgadas: string[] = [];
   public estadoJuego = 'Iniciado';
@@ -9,7 +11,7 @@ export class Ahorcado {
   public chequearLetra(letra: string): boolean {
     if(letra == ''){
       return false;
-    }
+    };
 
     return this.palabra.toLowerCase().includes(letra.toLowerCase());
   }
