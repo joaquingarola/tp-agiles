@@ -50,7 +50,7 @@ export class Ahorcado {
     if(this.vidas == 0){
       this.estadoJuego = 'Derrota';
       return;
-    };
+    }
 
     if(this.palabra.length == this.posicionesAdivinadas.length){
       this.estadoJuego = 'Victoria';
